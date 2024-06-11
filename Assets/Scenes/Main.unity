@@ -132,7 +132,6 @@ GameObject:
   m_Component:
   - component: {fileID: 286461050}
   - component: {fileID: 286461053}
-  - component: {fileID: 286461052}
   - component: {fileID: 286461057}
   - component: {fileID: 286461056}
   - component: {fileID: 286461055}
@@ -154,73 +153,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.043612763, y: 0.01743584, z: -0.0007612654, w: 0.99889606}
   m_LocalPosition: {x: -0.31229216, y: 3.6212754, z: -0.096637}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 5, y: 2, z: 0}
---- !u!114 &286461052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286461049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Library:
-  - m_Name: walk
-    m_Hash: 0
-    m_CategoryList:
-    - m_Name: walk_0
-      m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: a4d175ab65ce90a4bb9fddbf7bb8ce83, type: 3}
-    - m_Name: walk_1
-      m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: 437848d46da99d64e8b4f35bd0c1d578, type: 3}
-    - m_Name: walk_2
-      m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: 568c8b8f2dbed224fa778c3292741e4e, type: 3}
-    - m_Name: walk_3
-      m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: 25e50ee2887a04342b4194fd05184b6a, type: 3}
-    - m_Name: walk_4
-      m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: a4d175ab65ce90a4bb9fddbf7bb8ce83, type: 3}
-    - m_Name: walk_5
-      m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: feb64939bf7f2494d811f9649e4b017d, type: 3}
-    - m_Name: walk_6
-      m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: 864feaebba3c08b4583c21688c33252c, type: 3}
-    - m_Name: walk_7
-      m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: 87ab5fbfe761ed24cb643963692a8ce1, type: 3}
-  - m_Name: idle
-    m_Hash: 0
-    m_CategoryList:
-    - m_Name: idle_0
-      m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: a81312307fcac1040b8043ecbe2bd0b6, type: 3}
-    - m_Name: idle_1
-      m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: d634d6d3875e7b745bb6228e086e2a44, type: 3}
-    - m_Name: idle_2
-      m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: 157f322bf4d216646ba38e6ef40b2dd8, type: 3}
-    - m_Name: idle_3
-      m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: a175a41b7eb9a5f428cbdeadbbe777f6, type: 3}
-    - m_Name: idle_4
-      m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: 4a24023fc99f0f443a3d012af9ea9a1c, type: 3}
-    - m_Name: idle_5
-      m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: 765ef0d20ae3728449ed74878e150f37, type: 3}
-  m_SpriteLibraryAsset: {fileID: 0}
 --- !u!50 &286461053
 Rigidbody2D:
   serializedVersion: 4
@@ -260,6 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c75ed0a5675ad4bb44882f29405d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAwarenessDistance: 5
+  player: {fileID: 0}
 --- !u!114 &286461055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ab536a0e37ca246aae9055eaf30b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  rotationSpeed: 1
 --- !u!212 &286461056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -312,7 +253,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 7824b7de68777bb43b23a685f2b38e67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2546,6 +2487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b5b47d5178f714ebdc546848a7b2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
 --- !u!61 &1079471074
 BoxCollider2D:
   m_ObjectHideFlags: 0
