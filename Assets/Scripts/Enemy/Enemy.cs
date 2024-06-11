@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
         //RotateTowardsTarget();
         SetVelocity();
         UpdateAnimationDirection();
+        
     }
 
     private void UpdateTargetDirection()
@@ -76,5 +77,10 @@ public class Enemy : MonoBehaviour
             spriteRenderer.flipX = true;
             // transform.localScale = new Vector3(-1, 1, 1);
         }
+    }
+
+    private void AttackPlayer()
+    {
+        
     }
 }
