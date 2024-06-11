@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,15 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
 
     private Vector3 moveDelta;
+
+    private Rigidbody2D _rigidbody2D;
+
+    private SpriteRenderer _spriteRenderer;
+    private void Awake()
+    {
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     [SerializeField] 
     private float speed;
@@ -30,14 +40,14 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("y "+ y);
 
             //Swap sprite direction, wether you're going right or left
-            if(moveDelta.x > 0)
-                transform.localScale = Vector3.one;
+            if (moveDelta.x > 0)
+                _spriteRenderer.flipX = false;
             else if(moveDelta.x < 0)
-                transform.localScale = new Vector3(-1, 1, 1);
+                _spriteRenderer.flipX = true;
 
             moveDelta = moveDelta.normalized * speed;
             
             // Make this thing move!
-            transform.Translate(moveDelta * Time.deltaTime);
+            _rigidbody2D.velocity = new Vector2(moveDelta.x * Time.deltaTime, moveDelta.y * Time.deltaTime);
     }
 }

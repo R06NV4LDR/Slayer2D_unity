@@ -8,6 +8,8 @@ public class PlayerAwarenessController : MonoBehaviour
 
     public Vector2 DirectionToPlayer { get; private set; }
 
+    [SerializeField] private bool showRadius = false;
+    
     [SerializeField]
     private float playerAwarenessDistance;
 
@@ -31,6 +33,15 @@ public class PlayerAwarenessController : MonoBehaviour
         else
         {
             AwareOfPlayer = false;
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (showRadius)
+        {
+            Gizmos.color = new Color(1, 1, 0, .5f);
+            Gizmos.DrawSphere(transform.position, playerAwarenessDistance);
         }
     }
 }
